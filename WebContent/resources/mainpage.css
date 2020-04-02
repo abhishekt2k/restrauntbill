@@ -1,0 +1,99 @@
+
+div {
+    /* border: 1px solid #909090; */
+    width: 100%;
+    /* align-content: center; */
+}
+
+.borderLayout {
+    /* display: table; */
+    width: 100%;
+    /* margin: auto; */
+}
+
+.borderLayout .top {
+    display: table-row;
+    /* align-items: center; */
+}
+
+.borderLayout .left {
+    display: table-cell;
+    vertical-align: middle;
+    width: 10%;
+    width: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    /* padding-right: 2rem; */
+
+}
+
+.borderLayout .center {
+    display: table-cell;
+    width: 100%;
+}
+
+.borderLayout .right {
+    display: table-cell;
+    vertical-align: middle;
+    width: 10%;
+    width: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.borderLayout .bottom {
+    display: table-row;
+}
+
+
+button {
+    width: 7rem;
+    height: 50px;
+    margin-top: 0.15rem;
+    margin-bottom: 0.15rem;
+    position: relative;
+    padding: 1rem;
+}
+
+select {
+    height: 30px;
+    width: 160px;
+    margin-top: 5rem;
+
+}
+
+table {
+    border: solid 2px;
+    stroke: black;
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+    position: relative;
+    align-items: center;
+}
+
+#restrauntName {
+    align-content: center;
+    color: #656565;
+}
+
+h2 {
+    text-align: center;
+}
+
+#bvgs {
+    text-align: center;
+}
+
+tr{
+    border: solid 1px black;
+}
+td{
+    border: solid 1px black;
+    text-align: center;
+}

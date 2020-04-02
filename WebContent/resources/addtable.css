@@ -1,0 +1,26 @@
+body{
+    
+    vertical-align: center;
+    align-items: center;
+    background-color: coral;
+
+}
+table{
+    /* width: 100%; */
+    align-items: center;
+    margin-right: auto;
+    /* border: black solid; */
+    margin: auto;
+    text-align: center;
+}
+
+.panel{
+    /* display: block; */
+    /* border: solid black 2px; */
+    size: 10rem;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    align-content: center;
+    vertical-align: center;
+}
