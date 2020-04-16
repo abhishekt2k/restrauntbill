@@ -12,31 +12,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class PrintBill
- */
 @WebServlet("/PrintBill")
 public class PrintBill extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public PrintBill() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-    
     public void generateBill(Table table) {
         int sum = 0;
         try {
             try {
                 FileWriter f = new FileWriter("G:\\dev\\bills\\" + table.getBillId() + ".txt");
-//                PrintWriter pw = new PrintWriter(f);
                 BufferedWriter fw= new BufferedWriter(f);
                 fw.write("    .        TRASV's Restaurant       .            ");
                 fw.newLine();
@@ -82,7 +71,6 @@ public class PrintBill extends HttpServlet {
     
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		int tableNo = Integer.parseInt(request.getParameter("tableNumber"));
 		
 		Table table = DataBaseHelper.getInstance().getTable(tableNo);
@@ -91,21 +79,13 @@ public class PrintBill extends HttpServlet {
 		ArrayList<Integer> list = DataBaseHelper.getInstance().getActiveTables();
 
 		if(list.size() <= 1) {
-//			request.getRequestDispatcher("addtable");
 			response.sendRedirect("addtable");
 		} else {
-//			System.out.println("Got Response : " + list.get(2));
-//			request.setAttribute("tableNumber", list.get(2));
-//			request.getRequestDispatcher("main?tableNumber="+list.get(1));
 			response.sendRedirect("main?tableNumber="+list.get(0));
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

@@ -13,7 +13,6 @@ public class AddTableServlet extends HttpServlet {
 
 	public AddTableServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -24,13 +23,10 @@ public class AddTableServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		System.out.println(request.getParameterMap());
 		DataBaseHelper db = DataBaseHelper.getInstance();
 		int tableNumber = Integer.parseInt(request.getParameter("tableNumber"));
 		db.registerTable(tableNumber);
 		request.getRequestDispatcher("main").forward(request, response);
-//		response.sendRedirect("main");
 	}
 
 }

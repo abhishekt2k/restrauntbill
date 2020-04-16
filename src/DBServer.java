@@ -1,6 +1,3 @@
-
-
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -20,7 +17,6 @@ public class DBServer {
     }
 	
 	public static void registerTable( int table_no ) {
-		System.out.println("DB Server called");
         try{
             Connection con= getConnection();
             PreparedStatement ps=con.prepareStatement(
@@ -35,8 +31,6 @@ public class DBServer {
             con.close();
             
         }catch(Exception ex){ex.printStackTrace();}
-        System.out.println("DB Server call ended");
-
     }
 	
 	public static ArrayList<DishItem> getFoodItemsUnderCategory(String type ,String category){
@@ -50,8 +44,6 @@ public class DBServer {
             while(rs.next()) {
             	int dishId = rs.getInt("item_id");
             	String dishName = rs.getString("item_name");
-//            	String category = rs.getString("category");
-//            	String type = rs.getString("type");
             	int price = rs.getInt("item_price");
             	dishItems.add(new DishItem(dishId, dishName, type, category, price));
             }
@@ -68,17 +60,12 @@ public class DBServer {
 		int billId = 0;
 		try {
 			Connection con = getConnection();
-			System.out.println(date);
 			PreparedStatement ps = con.prepareStatement("select bill_id from bill_ids where table_no = ? ");
 			ps.setInt(1, tableNo);
-//			ps.setDate(2,  date);
 			ResultSet rs = ps.executeQuery();
-//			System.out.println(rs.getInt("bill_id"));
 			if(rs.next()) {
 				billId = rs.getInt("bill_id");
-			}
-			System.out.println("bill id is set to   " + billId);
-			
+			}			
 		} catch(Exception e) { System.out.println(e); }
 		return billId;		
 	}
@@ -125,7 +112,6 @@ public class DBServer {
 	}
 
 	public static ArrayList<Integer> getActiveTables() {
-		// TODO Auto-generated method stub
 		ArrayList<Integer> activeTables = new ArrayList<Integer>();
 		try{
             Connection con = getConnection();
@@ -136,35 +122,25 @@ public class DBServer {
             }
             
         }catch(Exception ex){ex.printStackTrace();}
-		
-		
 		return activeTables;
 	}
 
 	public static void addDishtoBill(int dishId, int billId) {
-		// TODO Auto-generated method stub
-		System.out.println("called addDishtoBill server");
 		try{
             Connection con = getConnection();
             PreparedStatement ps=con.prepareStatement("insert into bills values( ? , ?)");
             ps.setInt(1, billId);
             ps.setInt(2,  dishId);
             ps.execute();
-            System.out.println("query excuted");
         }catch(Exception ex){ex.printStackTrace();}
 	}
 
 	public static void removeTable(int tableNo) {
-		// TODO Auto-generated method stub
 		try{
             Connection con = getConnection();
             PreparedStatement ps=con.prepareStatement("delete from active_tables where table_no = ?");
             ps.setInt(1, tableNo);
             ps.execute();
-//            System.out.println("query excuted");
-        }catch(Exception ex){ex.printStackTrace();}
-		
-		
+        }catch(Exception ex){ex.printStackTrace();}		
 	}
-
 }

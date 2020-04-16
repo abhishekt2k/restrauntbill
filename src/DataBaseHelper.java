@@ -15,7 +15,6 @@ public class DataBaseHelper {
 	public Table getTable(int tableNo) {
 		// return table from db
 		Table table = new Table(tableNo);
-//		java.sql.Date date = new java.sql.Date( new java.util.Date().getTime());
 		int billId = DBServer.getBillId(tableNo);
 		table.setBillId(billId);
 		table.orderedItems = getBillDishes(billId);
@@ -51,14 +50,11 @@ public class DataBaseHelper {
 	public void registerTable(int tableNo) {
 		// register table
 		DBServer.registerTable(tableNo);
-//		this.list.add(tableNo);
 
 	}
 
 	public static void removeTable(int tableNo) {
-		// TODO Auto-generated method stub
-		DBServer.removeTable(tableNo);
-		
+		DBServer.removeTable(tableNo);	
 	}
 
 }

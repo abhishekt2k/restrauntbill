@@ -31,22 +31,16 @@ public class ShowDishServlet extends HttpServlet {
 			category = categoryParam;
 			type = "veg";
 		}
-		System.out.println("once");
 		ArrayList<DishItem> list = db.getDishes(category, type);
-		System.out.println("done");
 		request.setAttribute("dishes", list);
-		System.out.println("attrb set");
 		int tableNo = Integer.parseInt( request.getParameter("tableNumber"));
 		Table table = db.getTable(tableNo);
 		request.setAttribute("table", table );
-		System.out.println("another atr");
 		request.getRequestDispatcher("showDishes.jsp").forward(request, response);
 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-//		doGet(request, response);
-	}
+			throws ServletException, IOException {	}
 
 }

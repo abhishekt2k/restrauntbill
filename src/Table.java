@@ -10,15 +10,10 @@ public class Table {
 	
 	
 	public Table(int tableNo) {
-		// register table in database
 		this.tableNo = tableNo;
-		this.addedAt = new Date();
-//		DataBaseHelper db = DataBaseHelper.getInstance();
-		
+		this.addedAt = new Date();		
 	}
-	
-//	void setTableNo(int tableNo) { this.tableNo = tableNo; }
-	
+		
 	void setBillId(int billId) { this.billId = billId; }
 	
 	void addDish(DishItem dish) {this.orderedItems.add(dish);}
@@ -28,6 +23,4 @@ public class Table {
 	public int getTableNo() { return this.tableNo ;}
 	
 	public ArrayList<DishItem> getOrderedItems(){ return this.orderedItems; }
-	
-
 }
