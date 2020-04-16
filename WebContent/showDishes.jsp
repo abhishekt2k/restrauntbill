@@ -14,6 +14,7 @@ body{
     vertical-align: center;
     align-items: center;
     background-color: coral;
+    background-image: url( 'https://uploads-ssl.webflow.com/5b1fa99f611b011198e1990f/5c7e938410414db53d5006f8_Main%20image-%20healthy%20diet%20(1).png');
 
 }
 table{
@@ -23,16 +24,17 @@ table{
     /* border: black solid; */
     margin: auto;
     text-align: center;
-}
-button {
-    width: 7rem;
-    height: 50px;
-    margin-top: 0.15rem;
-    margin-bottom: 0.15rem;
-    position: relative;
-    padding: 1rem;
+    border: 5px solid black;
 }
 
+.button {
+  display: block;
+  transition-duration: 0.4s;
+}
+.button:hover {
+  background-color: palevioletred; 
+  color: white;
+}
 .panel{
     /* display: block; */
     /* border: solid black 2px; */
@@ -45,6 +47,10 @@ button {
     text-align: center;
     align-content: center;
     vertical-align: center;
+}
+.button {
+  float: left;
+  border: 1px solid green;
 }
 
 </style>
